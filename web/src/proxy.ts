@@ -23,14 +23,21 @@ export async function proxy(request: NextRequest, event: NextFetchEvent) {
     if (devBypass() || isPublic(request)) return NextResponse.next();
     return NextResponse.redirect(new URL("/sign-in", request.url));
   }
-  if (isPublic(request) && !path.startsWith("/api/human")) return NextResponse.next();
   const { clerkMiddleware } = await import("@clerk/nextjs/server");
-  const handler = clerkMiddleware(async (auth) => {
-    await auth.protect();
-  });
+  const handler = clerkMiddleware(
+    async (auth) => {
+      if (path.startsWith("/__clerk")) return;
+      if (isPublic(request) && !path.startsWith("/api/human")) return;
+      await auth.protect();
+    },
+    { frontendApiProxy: { enabled: true } },
+  );
   return handler(request, event);
 }
 
 export const config = {
-  matcher: ["/((?!_next|[^?]*\\.(?:html?|css|js(?!on)|jpe?g|webp|png|gif|svg|ttf|woff2?|ico|csv|docx?|xlsx?|zip|webmanifest)).*)"],
+  matcher: [
+    "/((?!_next|[^?]*\\.(?:html?|css|js(?!on)|jpe?g|webp|png|gif|svg|ttf|woff2?|ico|csv|docx?|xlsx?|zip|webmanifest)).*)",
+    "/__clerk/(.*)",
+  ],
 };
