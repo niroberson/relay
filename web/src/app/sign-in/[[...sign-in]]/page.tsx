@@ -1,5 +1,6 @@
 import { SignIn } from "@clerk/nextjs";
 import Link from "next/link";
+import { Suspense } from "react";
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -27,7 +28,9 @@ export default function SignInPage() {
   }
   return (
     <main className="flex min-h-full items-center justify-center px-6 py-16">
-      <SignIn />
+      <Suspense fallback={<p className="text-sm text-muted-foreground">Loading…</p>}>
+        <SignIn />
+      </Suspense>
     </main>
   );
 }

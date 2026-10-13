@@ -1,4 +1,5 @@
 import { SignUp } from "@clerk/nextjs";
+import { Suspense } from "react";
 
 import { clerkConfigured } from "@/lib/human";
 
@@ -12,7 +13,9 @@ export default function SignUpPage() {
   }
   return (
     <main className="flex min-h-full items-center justify-center px-6 py-16">
-      <SignUp />
+      <Suspense fallback={<p className="text-sm text-muted-foreground">Loading…</p>}>
+        <SignUp />
+      </Suspense>
     </main>
   );
 }

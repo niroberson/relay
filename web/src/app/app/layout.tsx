@@ -30,7 +30,13 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
               ))}
             </nav>
           </div>
-          {clerkConfigured() ? <ClerkMenu /> : <Badge variant="outline">Local preview</Badge>}
+          {clerkConfigured() ? (
+            <Suspense fallback={null}>
+              <ClerkMenu />
+            </Suspense>
+          ) : (
+            <Badge variant="outline">Local preview</Badge>
+          )}
         </div>
       </header>
       <Suspense fallback={<p className="mx-auto w-full max-w-5xl px-6 py-8 text-sm text-muted-foreground">Loading…</p>}>
