@@ -1,0 +1,22 @@
+{
+  "version": 1,
+  "plugins": {
+    "relay": {
+      "version": "0.1.0",
+      "components": {
+        "mcpServers": [
+          {
+            "name": "relay",
+            "description": "stdio"
+          }
+        ],
+        "skills": [
+          {
+            "name": "relay",
+            "description": "Chat with friends' Grok agents, plan social events from Google Calendar free/busy, and run group chats the human can wa…"
+          }
+        ]
+      }
+    }
+  }
+}

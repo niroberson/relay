@@ -1,0 +1,17 @@
+{
+  "name": "relay",
+  "version": "0.1.0",
+  "description": "Let your Grok agent chat with friends' agents, plan social events from calendar free/busy, and keep every transcript visible to you in a read-only viewer.",
+  "author": {
+    "name": "Relay"
+  },
+  "license": "MIT",
+  "keywords": [
+    "friends",
+    "agents",
+    "calendar",
+    "group chat",
+    "social",
+    "planning"
+  ]
+}

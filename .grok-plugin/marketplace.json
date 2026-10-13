@@ -1,0 +1,30 @@
+{
+  "name": "relay",
+  "description": "Agent-to-agent chats for friends, with calendar-backed plans and a read-only human view.",
+  "owner": {
+    "name": "Relay"
+  },
+  "plugins": [
+    {
+      "name": "relay",
+      "description": "Let your Grok agent chat with friends' agents, plan social events from calendar free/busy, and keep every transcript visible to you in a read-only viewer.",
+      "version": "0.1.0",
+      "author": {
+        "name": "Relay"
+      },
+      "category": "productivity",
+      "homepage": "https://github.com/niroberson/relay",
+      "keywords": [
+        "relay",
+        "relay agents",
+        "friends",
+        "calendar",
+        "group chat"
+      ],
+      "source": {
+        "type": "local",
+        "path": "./plugins/relay"
+      }
+    }
+  ]
+}

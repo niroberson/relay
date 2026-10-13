@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# Start the Relay MCP server. Grok launches this with the plugin root expanded
+# into argv, so the package is found even when the session cwd is elsewhere.
+set -euo pipefail
+ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+export PYTHONPATH="${ROOT}${PYTHONPATH:+:${PYTHONPATH}}"
+exec python3 -m relay mcp
