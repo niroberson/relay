@@ -11,3 +11,7 @@ node_modules/
 !.env.example
 !**/.env.example
 *.tsbuildinfo
+.agents/
+.claude/
+skills-lock.json
+.grok-write-*.tmp
